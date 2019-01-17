@@ -2,22 +2,23 @@ require_relative 'square'
 
 class Board
 
-  attr_reader :size, :squares
+  attr_reader :rows
 
   DEFAULT_SIZE = 4
 
   def initialize(size = DEFAULT_SIZE, square = Square)
     @size = size
-    @squares = []
     @square = square
-  end
-
-  def set_up
-    @size.times { @squares << row(@size) }
-    self
+    @rows = set_up
   end
 
 private
+
+  def set_up
+    rows = []
+    @size.times { rows << row(@size) }
+    rows
+  end
 
   def row(size)
     row = []

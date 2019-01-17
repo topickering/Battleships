@@ -2,26 +2,14 @@ require 'board'
 
 describe Board do
 
-  it "initializes with a default size" do
-    expect(subject.size).to eq Board::DEFAULT_SIZE
+  it "initializes with an array of arrays of sqaures" do
+    expect(subject.rows.empty?).to be false
   end
-  it "initializes with an empty array of sqaures" do
-    expect(subject.squares.empty?).to be true
+  it "creates the @size amount of rows" do
+    expect(subject.rows.length).to eq Board::DEFAULT_SIZE
   end
-
-  describe "#set_up" do
-    it "populates the board with squares" do
-      subject.set_up
-      expect(subject.squares.empty?).to be false
-    end
-    it "creates the @size amount of rows" do
-      subject.set_up
-      expect(subject.squares.length).to eq Board::DEFAULT_SIZE
-    end
-    it "has the same number of columns as rows" do
-      subject.set_up
-      expect(subject.squares.length).to eq (subject.squares[0].length)
-    end
+  it "has the same number of columns as rows" do
+    expect(subject.rows.length).to eq subject.rows[0].length
   end
 
 end
