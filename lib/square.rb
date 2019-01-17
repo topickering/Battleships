@@ -19,4 +19,8 @@ class Square
     @attacked = true
   end
 
+  def hit
+    @ship && @attacked
+  end
+
 end

@@ -30,4 +30,20 @@ describe Square do
     end
   end
 
+  describe '#hit' do
+    it 'is true if square has a ship and has been attacked' do
+      subject.place_ship
+      subject.attack
+      expect(subject.hit).to be true
+    end
+    it 'is false if square has no ship and has been attacked' do
+      subject.attack
+      expect(subject.hit).to be false
+    end
+    it 'is false if square has a ship and has not been attacked' do
+      subject.place_ship
+      expect(subject.hit).to be false
+    end
+  end
+
 end
