@@ -20,4 +20,13 @@ describe Square do
     end
   end
 
+  describe '#attack' do
+    it 'attacks a square' do
+      expect(subject).to respond_to(:attack)
+    end
+    it 'changes the attacked instance variable' do
+      expect(subject.attack).to be true
+    end
+  end
+
 end

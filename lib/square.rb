@@ -13,4 +13,8 @@ class Square
     @ship = true
   end
 
+  def attack
+    @attacked = true
+  end
+
 end
