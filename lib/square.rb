@@ -17,6 +17,7 @@ class Square
     fail "Square already fired upon" if @attacked
 
     @attacked = true
+    hit ? "Bullseye! It's a hit!" : "Bad luck, it's a miss"
   end
 
   def hit

@@ -21,12 +21,16 @@ describe Square do
   end
 
   describe '#attack' do
-    it 'attacks a square' do
-      expect(subject.attack).to be true
-    end
     it 'raises an error if the square has already been attacked' do
       subject.attack
       expect { subject.attack }.to raise_error "Square already fired upon"
+    end
+    it 'is successful if there is a ship on the square' do
+      subject.place_ship
+      expect(subject.attack).to eq "Bullseye! It's a hit!"
+    end
+    it 'misses if there is no ship on the square' do
+      expect(subject.attack).to eq "Bad luck, it's a miss"
     end
   end
 
