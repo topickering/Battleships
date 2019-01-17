@@ -7,4 +7,10 @@ class Square
     @attacked = false
   end
 
+  def place_ship
+    fail "Square already occupied" if @ship
+
+    @ship = true
+  end
+
 end
