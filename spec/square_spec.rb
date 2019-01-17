@@ -22,10 +22,11 @@ describe Square do
 
   describe '#attack' do
     it 'attacks a square' do
-      expect(subject).to respond_to(:attack)
-    end
-    it 'changes the attacked instance variable' do
       expect(subject.attack).to be true
+    end
+    it 'raises an error if the square has already been attacked' do
+      subject.attack
+      expect { subject.attack }.to raise_error "Square already fired upon"
     end
   end
 

@@ -14,6 +14,8 @@ class Square
   end
 
   def attack
+    fail "Square already fired upon" if @attacked
+
     @attacked = true
   end
 
