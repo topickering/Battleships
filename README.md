@@ -4,7 +4,9 @@ A tech test from week 10, Makers.
 
 Written in Ruby (https://ruby-doc.org/)
 
-## Hit the high seas - how to install the app
+## Hit the high seas!
+
+### How to install the app
 
 Fork this repository, and then clone into either an existing or new directory via the command line.
 
