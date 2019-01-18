@@ -13,8 +13,14 @@ describe Board do
   end
 
   describe "#find_row" do
-    it "locates a row in the rows array" do
+    it "locates a row in the rows array, based on an inputted letter" do
       expect(subject.find_row('A')).to eq subject.rows[0]
+    end
+  end
+
+  describe "#find_column" do
+    it "finds the 'column' based on an inputted number" do
+      expect(subject.find_column(1)).to be 0
     end
   end
 

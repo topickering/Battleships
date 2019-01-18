@@ -24,6 +24,10 @@ class Board
     return @rows[row - 1]
   end
 
+  def find_column(number)
+    number - 1
+  end
+
 private
 
   def set_up
