@@ -12,4 +12,10 @@ describe Board do
     expect(subject.rows.length).to eq subject.rows[0].length
   end
 
+  describe "#find_row" do
+    it "locates a row in the rows array" do
+      expect(subject.find_row('A')).to eq subject.rows[0]
+    end
+  end
+
 end
