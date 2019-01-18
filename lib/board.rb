@@ -6,10 +6,10 @@ class Board
 
   DEFAULT_SIZE = 4
   ALPHA_TABLE = [
-    { letter: 'a', number: 1 },
-    { letter: 'b', number: 2 },
-    { letter: 'c', number: 3 },
-    { letter: 'd', number: 4 }
+    { letter: 'A', number: 1 },
+    { letter: 'B', number: 2 },
+    { letter: 'C', number: 3 },
+    { letter: 'D', number: 4 }
   ]
 
   def initialize(size = DEFAULT_SIZE, square = Square)
@@ -18,8 +18,15 @@ class Board
     @rows = set_up
   end
 
+  def coordinate_parse(string)
+    split = string.split(//)
+    r = split[0]
+    c = split[1].to_i
+    { row: r, column: c }
+  end
+
   def find_row(letter)
-    letter.downcase!
+    letter.upcase!
     row = make_integer(letter)
     return @rows[row - 1]
   end
