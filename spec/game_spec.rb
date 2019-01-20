@@ -16,6 +16,11 @@ describe Game do
     it 'adds a ship to the game' do
       expect(subject.add_ship(frigate)).to eq [frigate]
     end
+    it 'throws an error if there are already 2 ships added' do
+      subject.add_ship(frigate)
+      subject.add_ship(destroyer)
+      expect { subject.add_ship(frigate) }.to raise_error 'Navy at capacity'
+    end
   end
 
 end
