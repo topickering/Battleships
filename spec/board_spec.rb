@@ -2,6 +2,8 @@ require 'board'
 
 describe Board do
 
+  let(:empty_square) { double("Square", ship: false, hit: false) }
+
   it "initializes with an array of arrays of squares" do
     expect(subject.rows.empty?).to be false
   end
@@ -28,6 +30,13 @@ describe Board do
     it "takes a coordinate in the form 'letter number' (eg B3) and parses it into row and column" do
       hash = { :column => 3, :row => "B" }
       expect(subject.coordinate_parse('B3')).to eq hash
+    end
+  end
+
+  describe "#place_ship" do
+    it "places a ship on a square in the rows array, having taken coordinate in the form letter number (eg B3)" do
+      allow(empty_square).to receive(:place_ship) { True }
+      expect(subject.place_ship('B3')).to eq 'Ship placed on B3'
     end
   end
 

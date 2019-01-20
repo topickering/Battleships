@@ -35,6 +35,15 @@ class Board
     number - 1
   end
 
+  def place_ship(string)
+    coordinates = coordinate_parse(string)
+    column = find_column(coordinates[:column])
+    row = find_row(coordinates[:row])
+    square = row[column]
+    square.place_ship
+    "Ship placed on #{string}"
+  end
+
 private
 
   def set_up
