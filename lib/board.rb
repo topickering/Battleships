@@ -18,28 +18,9 @@ class Board
     @rows = set_up
   end
 
-  def coordinate_parse(string)
-    split = string.split(//)
-    r = split[0]
-    c = split[1].to_i
-    { row: r, column: c }
-  end
-
-  def find_row(letter)
-    letter.upcase!
-    row = make_integer(letter)
-    return @rows[row - 1]
-  end
-
-  def find_column(number)
-    number - 1
-  end
-
   def place_ship(string)
     coordinates = coordinate_parse(string)
-    column = find_column(coordinates[:column])
-    row = find_row(coordinates[:row])
-    square = row[column]
+    square = find_row(coordinates[:row])[find_column(coordinates[:column])]
     square.place_ship
     "Ship placed on #{string}"
   end
@@ -66,6 +47,23 @@ private
       end
     }
     return number
+  end
+
+  def coordinate_parse(string)
+    split = string.split(//)
+    r = split[0]
+    c = split[1].to_i
+    { row: r, column: c }
+  end
+
+  def find_row(letter)
+    letter.upcase!
+    row = make_integer(letter)
+    return @rows[row - 1]
+  end
+
+  def find_column(number)
+    number - 1
   end
 
 end

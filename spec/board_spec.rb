@@ -14,25 +14,6 @@ describe Board do
     expect(subject.rows.length).to eq subject.rows[0].length
   end
 
-  describe "#find_row" do
-    it "locates a row in the rows array, based on an inputted letter" do
-      expect(subject.find_row('a')).to eq subject.rows[0]
-    end
-  end
-
-  describe "#find_column" do
-    it "finds the 'column' based on an inputted number" do
-      expect(subject.find_column(1)).to be 0
-    end
-  end
-
-  describe "#coordinate_parse" do
-    it "takes a coordinate in the form 'letter number' (eg B3) and parses it into row and column" do
-      hash = { :column => 3, :row => "B" }
-      expect(subject.coordinate_parse('B3')).to eq hash
-    end
-  end
-
   describe "#place_ship" do
     it "places a ship on a square in the rows array, having taken coordinate in the form letter number (eg B3)" do
       allow(empty_square).to receive(:place_ship) { True }
