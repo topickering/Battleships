@@ -18,6 +18,12 @@ class Board
     @rows = set_up
   end
 
+  def set_up
+    rows = []
+    @size.times { rows << row(@size) }
+    rows
+  end
+
   def place_ship(string)
     coordinates = coordinate_parse(string)
     square = find_row(coordinates[:row])[find_column(coordinates[:column])]
@@ -26,12 +32,6 @@ class Board
   end
 
 private
-
-  def set_up
-    rows = []
-    @size.times { rows << row(@size) }
-    rows
-  end
 
   def row(size)
     row = []
