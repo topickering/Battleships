@@ -7,7 +7,6 @@ describe Game do
   let(:destroyer) { double("Ship", length: 3) }
 
   it "initializes with a board" do
-    allow(board).to receive(:set_up) { board }
     test = Game.new(board)
     expect(test.board).to be board
   end

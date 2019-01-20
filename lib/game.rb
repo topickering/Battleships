@@ -5,7 +5,7 @@ class Game
   attr_reader :board, :ships
 
   def initialize(board = Board.new)
-    @board = board.set_up
+    @board = board
     @ships = [ ]
   end
 
